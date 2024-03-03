@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+    <table border=1><tr>
+<th>titre</th>
+<th>resume</th>
+<th>date_publication</th>
+<th>auteur</th>
+
+</tr>
+{% for article in articles %}
+<tr>
+<td>{{article.titre|capitalize}}</td>
+<td>{{article.resume|capitalize}}</td>
+<td>{{article.date_publication|date('d-m-Y')}}</td>
+<td>{{article.auteur}}</td>
+</tr>
+</table>
+{% endfor %}
+{% for article in articles %}
+
+{% if date(article.date_publication)<date('-2 years') %}
+{{"Archivé"}}
+{% endif %}
+{% endfor %}
+
+
+{%endblock%}

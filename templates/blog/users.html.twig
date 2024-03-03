@@ -1,0 +1,14 @@
+{%extends "base.html.twig" %}
+{% block body %}
+<h1>Listes des users :</h1>
+<table class="table">
+<th>nom</th>
+<th>age</th></tr>
+{% for value in users %}
+<tr>
+<td>{{value.name | capitalize}}</td>
+<td>{{value.age}}</td>
+</tr>
+{% endfor %}
+</table>
+{%endblock%}
